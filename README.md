@@ -6,7 +6,9 @@ Towards Comprehensive Benchmarking for Rule Induction in Transparent Automated B
 - download the raw results at https://github.com/hvoelzer/rulebenchmark/blob/main/rulebenchmark/results_1.csv
 
 
-## Inspect results of other runs
+## Inspect results of other runs, Change charts
+- use and modify viz.ipynb
+- you can use any of the results_k.csv files in viz.ipynb
 
 
 ## Re-run the benchmarking on your hardware
