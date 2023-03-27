@@ -12,6 +12,10 @@ Towards Comprehensive Benchmarking for Rule Induction in Transparent Automated B
 
 
 ## Re-run the benchmarking on your hardware
+- install this project
+- download missing data sets into data directory (links to sources in data_configs.py)
+- configure main parameters in run_benchmarking.py
+- execute run_benchmarking.py
 
 
 ## Add a data set, or run only selected data sets
