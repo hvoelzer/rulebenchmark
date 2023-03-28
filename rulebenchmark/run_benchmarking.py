@@ -9,10 +9,10 @@ import pandas as pd
 import xgboost as xgb
 from corels import CorelsClassifier
 
-from symlearn.algorithms.rbm.rbm import FeatureBinarizer, FeatureBinarizerFromTrees
-from symlearn.algorithms.r2n.r2n_algo import R2Nalgo
-from symlearn.algorithms.rbm.boolean_rule_cg import BooleanRuleCG as BRCG
-from symlearn.algorithms.ripper import RipperExplainer
+from rulelearn.algorithms.rbm.rbm import FeatureBinarizer, FeatureBinarizerFromTrees
+from rulelearn.algorithms.r2n.r2n_algo import R2Nalgo
+from rulelearn.algorithms.rbm.boolean_rule_cg import BooleanRuleCG as BRCG
+from rulelearn.algorithms.ripper import RipperExplainer
 
 from sklearn.tree import DecisionTreeClassifier, export_text
 
