@@ -10,7 +10,8 @@ dependencies = [
     "numpy",
     "scikit-learn",
     "xgboost",
-    "corels"
+    "corels",
+    "rulelearn"
 ]
 
 [project.optional-dependencies]
