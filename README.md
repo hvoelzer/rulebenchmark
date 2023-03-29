@@ -6,13 +6,22 @@ Towards Comprehensive Benchmarking for Rule Induction in Transparent Automated B
 - download the raw results at https://github.com/hvoelzer/rulebenchmark/blob/main/rulebenchmark/results_1.csv
 
 
-## Inspect results of other runs, Change charts
+## Inspect results of other runs, change charts
 - use and modify viz.ipynb
 - you can use any of the results_k.csv files in viz.ipynb
 
 
 ## Re-run the benchmarking on your hardware
-- install this project
+- install this project, run benchmarking with pre-configured test data
+```
+virtualenv venv
+source venv/bin/activate
+git clone git@github.com:hvoelzer/rulebenchmark.git
+cd rulebenchmark
+pip install -e .
+cd rulebenchmark
+python run_benchmarking.py
+```
 - download missing data sets into data directory (links to sources in data_configs.py)
 - configure main parameters in run_benchmarking.py
 - execute run_benchmarking.py
