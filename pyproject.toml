@@ -1,7 +1,7 @@
 [project]
 name = "rulebenchmark"
 description = "Towards Comprehensive Benchmarking for Rule Induction"
-version = "0.9.0"
+version = "0.9.1"
 authors = [
     { name = "Hagen Völzer, Daniel Horn, Yusik Kim", email = "hvoelzer@acm.org" }
 ]
