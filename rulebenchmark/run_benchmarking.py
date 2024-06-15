@@ -24,15 +24,15 @@ from rulebenchmark.data_configs import CONFIG_DICT, core_suite, synth_imbalance_
     synth_disjunctive_complexity_suite, synth_conjunctive_complexity_suite, synth_linear_complexity_suite, \
     synth_size_suite, test_suite
 from rulebenchmark.dtree_helper import get_rules
+from rulebenchmark.trivial_classifier import ConstantPosClassifier
 
 # Configure a Benchmarking run here
 MAX_COMPUTATIONS = 10  # run max. this number of new computations (= pipeline on data set),
 # run multiple such batches to get all results
 SPLIT_SEED = 42
-# SUITES = [core_suite, synth_imbalance_suite, synth_noise_suite, synth_disjunctive_complexity_suite,
-#           synth_conjunctive_complexity_suite, synth_linear_complexity_suite, synth_size_suite]
-# SUITES = [core_suite]
-SUITES = [test_suite]
+SUITES = [core_suite, synth_imbalance_suite, synth_noise_suite, synth_disjunctive_complexity_suite, synth_conjunctive_complexity_suite, synth_linear_complexity_suite, synth_size_suite]
+#SUITES = [core_suite]
+# SUITES = [test_suite]
 PIPELINES = [('LENC', 'XGB'),
              ('LENC', 'CART:4'),
              ('LENC', 'CART:6'),
@@ -52,7 +52,8 @@ PIPELINES = [('LENC', 'XGB'),
              ('TREES', 'RIPPER'),
              ('QUANTILE', 'CORELS'),
              ('TREES', 'CORELS2'),
-             ('TREES2', 'CORELS2')
+             ('TREES2', 'CORELS2'),
+             ('NATIVE', 'CONST')
              ]
 
 
@@ -69,7 +70,7 @@ def excluded(binari, pipeline, data_set):
     return False
 
 
-RESULT_FILE = 'results_{}.csv'.format(SPLIT_SEED)  # path local to working dir
+RESULT_FILE = 'results_{}.csv'.format(SPLIT_SEED) # path local to working dir
 RUNTIME_EXCEPTION_VAL = -1.0
 BINARIZED_DF_OVERFLOW = 2000  # experience on when binarized data frame is too large for subsequent rule induction (on my hardware)
 TRAIN_TEST_SPLIT = 0.3
@@ -267,6 +268,8 @@ for index, config in enumerate(configs):
                     if algo == 'XGB':
                         estimator = xgb.XGBClassifier(use_label_encoder=False, verbosity=0)
                         estimator.fit(x_train_bin, y_train)
+                    elif algo == 'CONST':
+                        estimator = ConstantPosClassifier(POS_CLASS)
                     elif algo == 'CART:4':
                         estimator = DecisionTreeClassifier(max_depth=4)
                         estimator.fit(x_train_bin, y_train)
